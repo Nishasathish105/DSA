@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>  // For abs()
+using namespace std;
+
+int findNearest(int arr[], int n, int target) {
+    int nearest = arr[0];  
+    for (int i = 1; i < n; i++) {
+        if (abs(arr[i] - target) < abs(nearest - target)) {
+            nearest = arr[i];  
+        }
+    }
+    return nearest;
+}
+
+int main() {
+    int arr[] = {1, 5, 9, 15, 22};  
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 10;
+
+    int nearest = findNearest(arr, n, target);
+    cout << "Nearest integer to " << target << " is: " << nearest << endl;
+
+    return 0;
+}
